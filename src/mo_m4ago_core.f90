@@ -240,10 +240,8 @@ contains
       aggs%av_rho_p = aggs%av_rho_p + aggs%V_pp(ipp)*aggs%rho_pp(ipp)
       V_solid  = V_solid  + aggs%V_pp(ipp)
     enddo
-    aggs%av_dp    = (aggs%av_dp/Vdpfrac)**(1._wp/(3._wp - aggs%df_agg))
-    aggs%av_rho_p = aggs%av_rho_p/V_solid
-    !    aggs%av_dp    = (av_dp/(Vdpfrac+EPS_ONE))**(1._wp/(3._wp - df_agg))
-    !    aggs%av_rho_p = av_rho_p/(V_solid+EPS_ONE)
+    aggs%av_dp    = (aggs%av_dp/(Vdpfrac+EPS_ONE))**(1._wp/(3._wp - aggs%df_agg))
+    aggs%av_rho_p = aggs%av_rho_p/(V_solid+EPS_ONE)
 
     ! init Re_crit_agg - with a global value
     aggs%Re_crit_agg = agg_Re_crit
